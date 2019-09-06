@@ -28,7 +28,6 @@ class LastCommit extends Command
             ->addOption('service', null, InputOption::VALUE_OPTIONAL, 'Nazwa serwisu', 'github');
     }
 
-    //php bin/console app:last-commit paulpiotr/testowe.git master
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         try {
@@ -42,12 +41,12 @@ class LastCommit extends Command
                     }
                     break;
                 default:
-                    $output->writeln(sprintf("<error> NIeznany servis (%s) <error>", $service));
+                    $output->writeln(sprintf("<error> Nieznany servis (%s) <error>", $service));
                     break;
             }
         } catch (\Exception $e) {
-            $output->writeln("<error>{$e->getMessage()}</error>");
-            $output->writeln("<error>{$e->getTraceAsString()}</error>");
+            $output->writeln("<error> {$e->getMessage()} </error>");
+            $output->writeln("<error> {$e->getTraceAsString()} </error>");
         }
     }
 
@@ -75,8 +74,8 @@ class LastCommit extends Command
             curl_close($curl_init);
             return null;
         } catch (\Exception $e) {
-            $output->writeln("<error>{$e->getMessage()}</error>");
-            $output->writeln("<error>{$e->getTraceAsString()}</error>");
+            $output->writeln("<error> {$e->getMessage()} </error>");
+            $output->writeln("<error> {$e->getTraceAsString()} </error>");
             return null;
         }
     }
