@@ -8,7 +8,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputOption;
 
-class InstallCommand extends Command
+class LastCommit extends Command
 {
 
     protected const GitHubLastCommitShaUrl = "https://api.github.com/repos/%s/branches/%s";
